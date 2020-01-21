@@ -8,6 +8,11 @@
 
 [Nest](https://github.com/nestjs/nest) integrated with [GraphQL](https://graphql.org/) and [Mongoose](https://mongoosejs.com/) ODM of MongoDB, You will have a CRUD and useful samples for doing amazing server applications.
 
+## Requirements
+
+- MongoDB (Feel free to use the Docker with the script command `npm run start:db`)
+- NestJs CLI
+
 ## Installation
 
 ```bash
