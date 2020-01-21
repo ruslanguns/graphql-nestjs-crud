@@ -1,8 +1,8 @@
 {
   "name": "graphql-nestjs-crud",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Nestjs integration with GraphQL",
+  "author": "Ruslan Gonzalez <ruslanguns@gmail.com>",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -12,6 +12,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
+    "start:db": "bash ./scripts/docker-db.sh",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -22,7 +23,14 @@
   "dependencies": {
     "@nestjs/common": "^6.7.2",
     "@nestjs/core": "^6.7.2",
+    "@nestjs/graphql": "^6.5.3",
+    "@nestjs/mongoose": "^6.2.1",
     "@nestjs/platform-express": "^6.7.2",
+    "apollo-server-express": "^2.9.16",
+    "class-transformer": "^0.2.3",
+    "graphql": "^14.5.8",
+    "graphql-tools": "^4.0.6",
+    "mongoose": "^5.8.9",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.3"
