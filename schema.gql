@@ -36,10 +36,10 @@ input EditBudgetInput {
 type Mutation {
   createRecord(input: BudgetInput!): BudgetType!
   deleteRecord(id: String!): BudgetType!
-  updateItem(input: EditBudgetInput!, id: String!): BudgetType!
+  updateRecord(input: EditBudgetInput!, id: String!): BudgetType!
 }
 
 type Query {
-  budget: [BudgetType!]!
+  getRecords: [BudgetType!]!
   getRecordById(id: String!): BudgetType!
 }

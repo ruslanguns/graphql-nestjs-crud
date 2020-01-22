@@ -8,7 +8,7 @@ export class BudgetResolver {
     constructor(private readonly budgetService: BudgetService) { }
 
     @Query(() => [BudgetType])
-    async budget(): Promise<BudgetType[]> {
+    async getRecords(): Promise<BudgetType[]> {
         return await this.budgetService.find();
     }
 
@@ -27,7 +27,7 @@ export class BudgetResolver {
         return await this.budgetService.delete(id);
     }
     @Mutation(() => BudgetType)
-    async updateItem(
+    async updateRecord(
         @Args('id') id: string,
         @Args('input') input: EditBudgetInput,
     ): Promise<BudgetType> {
