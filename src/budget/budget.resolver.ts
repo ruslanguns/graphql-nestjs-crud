@@ -3,36 +3,35 @@ import { BudgetService } from './budget.service';
 import { BudgetDto } from './dtos/budget.dto';
 import { BudgetInput } from './budget.input';
 
-@Resolver('Budget')
+@Resolver()
 export class BudgetResolver {
     constructor(private readonly budgetService: BudgetService) { }
 
     @Query(() => [BudgetDto])
     async budget(): Promise<BudgetDto[]> {
-        return this.budgetService.find();
+        return await this.budgetService.find();
     }
 
     @Query(() => BudgetDto)
     async getRecordById(@Args('id') id: string): Promise<BudgetDto> {
-        return this.budgetService.findById(id);
+        return await this.budgetService.findById(id);
     }
 
     @Mutation(() => BudgetDto)
-    async createRecord(@Args('budget') input: BudgetInput): Promise<BudgetInput> {
-        return this.budgetService.create(input);
+    async createRecord(@Args('input') input: BudgetInput): Promise<BudgetInput> {
+        return await this.budgetService.create(input);
     }
 
     @Mutation(() => BudgetDto)
     async deleteRecord(@Args('id') id: string): Promise<BudgetInput> {
-        return this.budgetService.delete(id);
+        return await this.budgetService.delete(id);
     }
-
     @Mutation(() => BudgetDto)
-    async updateRecord(
+    async updateItem(
         @Args('id') id: string,
-        @Args('budget') input: BudgetInput,
+        @Args('input') input: BudgetInput,
     ): Promise<BudgetInput> {
-        return this.budgetService.update(id, input);
+        return await this.budgetService.update(id, input);
     }
 
 }
