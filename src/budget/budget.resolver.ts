@@ -1,7 +1,7 @@
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { BudgetService } from './budget.service';
-import { BudgetType } from './types/budget.type';
-import { BudgetInput } from './budget.input';
+import { BudgetType } from './types';
+import { BudgetInput, EditBudgetInput } from './inputs';
 
 @Resolver()
 export class BudgetResolver {
@@ -29,7 +29,7 @@ export class BudgetResolver {
     @Mutation(() => BudgetType)
     async updateItem(
         @Args('id') id: string,
-        @Args('input') input: BudgetInput,
+        @Args('input') input: EditBudgetInput,
     ): Promise<BudgetType> {
         return await this.budgetService.update(id, input);
     }

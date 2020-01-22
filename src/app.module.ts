@@ -9,6 +9,7 @@ import { GraphQLModule } from '@nestjs/graphql';
   imports: [
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
+      playground: true,
     }),
     MongooseModule.forRoot('mongodb://localhost/nestjs-graphql', { useNewUrlParser: true, useUnifiedTopology: true }),
     BudgetModule,

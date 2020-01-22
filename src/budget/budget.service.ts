@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { IBudget } from './interfaces/budget.interface';
-import { BudgetType } from './types/budget.type';
-import { BudgetInput } from './budget.input';
+import { IBudget } from './interfaces';
+import { BudgetType } from './types';
+import { BudgetInput, EditBudgetInput } from './inputs';
 
 @Injectable()
 export class BudgetService {
@@ -21,7 +21,7 @@ export class BudgetService {
         return await this.budgetModel.create(dto);
     }
 
-    async update(id: string, dto: BudgetInput): Promise<BudgetType> {
+    async update(id: string, dto: EditBudgetInput): Promise<BudgetType> {
         return await this.budgetModel.findByIdAndUpdate(id, dto, { new: true });
     }
 
