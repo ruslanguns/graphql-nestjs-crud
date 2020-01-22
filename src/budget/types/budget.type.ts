@@ -1,13 +1,14 @@
-import { InputType, Field, Int, ID } from 'type-graphql';
+import { InputType, Field, Int, ID, ObjectType } from 'type-graphql';
 import { IsString, IsNumber, IsNotEmpty } from 'class-validator';
+import { BudgetTypeEnum } from '../enums/budget-type.enum';
 
-@InputType()
-export class BudgetDto {
+@ObjectType()
+export class BudgetType {
     @Field(() => ID)
     @IsString()
-    readonly id?: string;
+    readonly _id?: string;
 
-    @Field()
+    @Field(() => BudgetTypeEnum)
     @IsString()
     @IsNotEmpty()
     readonly type: string;
@@ -21,4 +22,9 @@ export class BudgetDto {
     @IsString()
     @IsNotEmpty()
     readonly description: string;
+
+    @Field()
+    @IsString()
+    readonly createdAt: Date;
+
 }
